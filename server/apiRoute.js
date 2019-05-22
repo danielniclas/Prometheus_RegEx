@@ -5,9 +5,78 @@ const fs = require('fs');
 const curl = require('curlrequest');
 const githubContent = require('github-content');
 
-module.exports = {
+const indexHtml = fs.readFileSync('./client/index.html', {encoding:'utf8'});
 
-    get:function(){
+let parsedContents;
+let fileContents;
+
+
+
+function gcFunc(){
+
+    console.log('>>> apiRoute.js > gcFunc');
+
+    let options = {
+        owner: 'danielniclas',
+        repo: 'Prometheus_RegEx',
+        branch: 'master'
+    };
+
+    let gc = new githubContent(options);
+
+    gc.file('regex.json', function(err, file) {
+        if (err) return console.log(err);
+
+        console.log('gc.file() >>>');
+        console.log(file.path);
+        console.log(file.contents);
+
+        fileContents = file.contents;
+        parsedContents = JSON.parse(fileContents);
+
+        // console.log(parsedContents);
+    });
+}
+
+gcFunc();
+
+module.exports = {
+    get:function(req,res){
+
+        console.log('>>> apiRoute.js > GET > gcFunc');
+
+        res.writeHead(200,{'Content-Type':'application/json'});
+        res.write(fileContents);
+        res.end();
+
+        //
+        // let options = {
+        //     owner: 'danielniclas',
+        //     repo: 'Prometheus_RegEx',
+        //     branch: 'master'
+        // };
+        //
+        // let gc = new githubContent(options);
+        //
+        // gc.file('regex.json', function(err, file) {
+        //     if (err) return console.log(err);
+        //
+        //     console.log('gc.file() >>>');
+        //     console.log(file.path);
+        //     console.log(file.contents);
+        //
+        //     fileContents = file.contents;
+        //     parsedContents = JSON.parse(fileContents);
+        //
+        //     console.log(parsedContents);
+        // });
+
+        // res.write(200, {'Content-Type':'text/json'});
+        // res.write(fileContents);
+        // res.end();
+    },
+
+    getREMOVE:function(){
 
         console.log('>>> apiRoute.js > GET Function');
 
@@ -49,31 +118,8 @@ function curlFunc() {
     });
 }
 
-function gcFunc(){
 
-    console.log('>>> apiRoute.js > gcFunc');
-
-    let options = {
-        owner: 'doowb',
-        repo: 'github-content',
-        branch: 'master'
-    };
-
-    let gc = new githubContent(options);
-
-    gc.file('package.json', function(err, file) {
-        if (err) return console.log(err);
-
-        console.log('gc.file() >>>');
-        console.log(file.path);
-        console.log(file.contents);
-
-        let fileContents = file.contents;
-        let parsedContents = JSON.parse(fileContents);
-
-        console.log(parsedContents);
-    });
-}
 
 // curlFunc();
-gcFunc();
+// gcFunc();
+
