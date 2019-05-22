@@ -1,0 +1,22 @@
+
+'use strict';
+
+const PORT = 8080;
+const http = require('http');
+const router = require('./server/router.js');
+const server = http.createServer();
+const browserSync = require('browser-Sync').create();
+
+server.on('request', (req, res) => {
+    router.route(req,res);
+});
+server.on('clientError', (err,socket) => {
+    socket.end('HTTP/1.1 400 Bad Request');
+});
+server.listen(PORT, () => {
+    console.log(`Listening on port: ${PORT}`);
+});
+
+
+
+

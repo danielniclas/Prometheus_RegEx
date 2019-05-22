@@ -1,0 +1,22 @@
+{
+  "name": "RegEx_01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "curlrequest": "^1.0.1",
+    "fs": "0.0.1-security",
+    "github-content": "^1.0.1",
+    "http": "0.0.0",
+    "url": "^0.11.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.5"
+  }
+}
