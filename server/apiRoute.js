@@ -1,44 +1,70 @@
 'use strict';
 
-// let data = require('/data.json');
-const fs = require('fs');
-const curl = require('curlrequest');
-const githubContent = require('github-content');
+// const fs = require('fs');
+// const githubContent = require('github-content');
 
-const indexHtml = fs.readFileSync('./client/index.html', {encoding:'utf8'});
+// let parsedContents;
+// let fileContents;
+// let stringContents;
+//
+// let regexType = "";
+// let PATH = `/Volumes/USB 128GB/MAPLELABS/RegEx_REPO_Project/${regexType}-regex-WRITE.json`;
+// let GIT_OWNER = "danielniclas";
+// let REPO_NAME = "Prometheus_RegEx";
+// let REPO_BRANCH = "master";
+//
+// let repoItem = ['linux-regex.json','redis-regex.json'];
+//
+//
+// repoItem.forEach((element, index, array) => {
+//
+//     regexType = element.split('-').shift();
+//     console.log(`regexType: ${regexType}`);
+//     gcFunc(regexType);
+//
+// });
+//
+//
+// function writeFile(content, PATH){
+//
+//     fs.writeFile(PATH, content, function(err){
+//         if(err){
+//             return console.log(err);
+//         }
+//         console.log("The file was saved");
+//     })
+// }
+//
+//
+//
+// function gcFunc(regexType){
+//
+//     let options = {
+//         owner: GIT_OWNER,
+//         repo: REPO_NAME,
+//         branch: REPO_BRANCH
+//     };
+//
+//     let gc = new githubContent(options);
+//
+//     gc.file(`${regexType}-regex.json`, function(err, file) {
+//         if (err) return console.log(err);
+//
+//         let PATH = `/Volumes/USB 128GB/MAPLELABS/RegEx_REPO_Project/${regexType}-regex-WRITE.json`;  //  << write to this file
+//         console.log(PATH);
+//
+//         fileContents = file.contents;
+//         parsedContents = JSON.parse(fileContents);
+//         stringContents = JSON.stringify(parsedContents);
+//
+//         writeFile(stringContents, PATH);
+//
+//     });
+// }
 
-let parsedContents;
-let fileContents;
+// gcFunc(regexType);
 
 
-
-function gcFunc(){
-
-    console.log('>>> apiRoute.js > gcFunc');
-
-    let options = {
-        owner: 'danielniclas',
-        repo: 'Prometheus_RegEx',
-        branch: 'master'
-    };
-
-    let gc = new githubContent(options);
-
-    gc.file('regex.json', function(err, file) {
-        if (err) return console.log(err);
-
-        console.log('gc.file() >>>');
-        console.log(file.path);
-        console.log(file.contents);
-
-        fileContents = file.contents;
-        parsedContents = JSON.parse(fileContents);
-
-        console.log(parsedContents);
-    });
-}
-
-gcFunc();
 
 module.exports = {
 
@@ -51,78 +77,8 @@ module.exports = {
         console.log("File Contents: ");
         console.log(fileContents);
         res.end();
-
-        //
-        // let options = {
-        //     owner: 'danielniclas',
-        //     repo: 'Prometheus_RegEx',
-        //     branch: 'master'
-        // };
-        //
-        // let gc = new githubContent(options);
-        //
-        // gc.file('regex.json', function(err, file) {
-        //     if (err) return console.log(err);
-        //
-        //     console.log('gc.file() >>>');
-        //     console.log(file.path);
-        //     console.log(file.contents);
-        //
-        //     fileContents = file.contents;
-        //     parsedContents = JSON.parse(fileContents);
-        //
-        //     console.log(parsedContents);
-        // });
-
-        // res.write(200, {'Content-Type':'text/json'});
-        // res.write(fileContents);
-        // res.end();
     }
-
-    // getREMOVE:function(){
-    //
-    //     console.log('>>> apiRoute.js > GET Function');
-    //
-    //     let gitUrl = 'https://github.com/pramurthy/cloudprovision-templates/blob/master/templates_list_production.json'
-    //     let options = { url: gitUrl, include: true};
-    //
-    //     console.log("apiRoute.js GET");
-    //
-    //     curl.request(options, function(err,parts){
-    //         parts = parts.split('\r\n');
-    //         let data = parts.pop()
-    //         , head = parts.pop();
-    //
-    //         console.log(data);
-    //         console.log(head);
-    //
-    //     });
-    // }
 };
 
 
-// function curlFunc() {
-//
-//     console.log('>>> apiRoute.js > GET Function');
-//
-//     let gitUrl = 'https://github.com/pramurthy/cloudprovision-templates/blob/master/templates_list_production.json';
-//     let options = {url: gitUrl, include: true};
-//
-//     console.log("apiRoute.js GET");
-//
-//     curl.request(options, function (err, parts) {
-//         parts = parts.split('\r\n');
-//         let data = parts.pop()
-//             , head = parts.pop();
-//
-//         // console.log(head);
-//         console.log(data);
-//
-//     });
-// }
-
-
-
-// curlFunc();
-// gcFunc();
 
