@@ -4,6 +4,11 @@ const fs = require('fs');
 const githubContent = require('github-content');
 const data = require('../regex_list_production.json');
 
+let repoItem = data.prometheus;
+
+console.log('DATA:');
+console.log(repoItem);
+
 let parsedContents;
 let fileContents;
 let stringContents;
@@ -17,7 +22,7 @@ let REPO_NAME = "Prometheus_RegEx";
 let REPO_BRANCH = "master";
 
 
-let repoItem = ['linux-regex.json','redis-regex.json','postgres-regex.json','ssss.json'];
+// let repoItem = ['linux-regex.json','redis-regex.json','postgres-regex.json','ssss.json'];
 
 
 repoItem.forEach((element, index, array) => {
