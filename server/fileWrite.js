@@ -8,6 +8,7 @@ let fileContents;
 let stringContents;
 
 let regexType;
+
 let PATH;
 let DIR = `/Volumes/USB 128GB/MAPLELABS/RegEx_REPO_Project/`;
 let GIT_OWNER = "danielniclas";
@@ -15,7 +16,7 @@ let REPO_NAME = "Prometheus_RegEx";
 let REPO_BRANCH = "master";
 
 
-let repoItem = ['linux-regex.json','redis-regex.json'];
+let repoItem = ['linux-regex.json','redis-regex.json','postgres-regex.json'];
 
 
 repoItem.forEach((element, index, array) => {

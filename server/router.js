@@ -2,8 +2,7 @@
 
 const staticRoute = require('./staticRoute.js');
 const apiRoute = require('./apiRoute.js');
-
-const fileWrite = require('./fileWrite.js');
+// const fileWrite = require('./fileWrite.js');
 
 // const handle404 = require('./handle404.js');
 const url = require('url');
