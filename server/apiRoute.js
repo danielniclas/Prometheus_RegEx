@@ -34,19 +34,22 @@ function gcFunc(){
         fileContents = file.contents;
         parsedContents = JSON.parse(fileContents);
 
-        // console.log(parsedContents);
+        console.log(parsedContents);
     });
 }
 
 gcFunc();
 
 module.exports = {
+
     get:function(req,res){
 
-        console.log('>>> apiRoute.js > GET > gcFunc');
+        // console.log('>>> apiRoute.js > GET > gcFunc');
 
         res.writeHead(200,{'Content-Type':'application/json'});
         res.write(fileContents);
+        console.log("File Contents: ");
+        console.log(fileContents);
         res.end();
 
         //
@@ -74,49 +77,49 @@ module.exports = {
         // res.write(200, {'Content-Type':'text/json'});
         // res.write(fileContents);
         // res.end();
-    },
-
-    getREMOVE:function(){
-
-        console.log('>>> apiRoute.js > GET Function');
-
-        let gitUrl = 'https://github.com/pramurthy/cloudprovision-templates/blob/master/templates_list_production.json'
-        let options = { url: gitUrl, include: true};
-
-        console.log("apiRoute.js GET");
-
-        curl.request(options, function(err,parts){
-            parts = parts.split('\r\n');
-            let data = parts.pop()
-            , head = parts.pop();
-
-            console.log(data);
-            console.log(head);
-
-        });
     }
+
+    // getREMOVE:function(){
+    //
+    //     console.log('>>> apiRoute.js > GET Function');
+    //
+    //     let gitUrl = 'https://github.com/pramurthy/cloudprovision-templates/blob/master/templates_list_production.json'
+    //     let options = { url: gitUrl, include: true};
+    //
+    //     console.log("apiRoute.js GET");
+    //
+    //     curl.request(options, function(err,parts){
+    //         parts = parts.split('\r\n');
+    //         let data = parts.pop()
+    //         , head = parts.pop();
+    //
+    //         console.log(data);
+    //         console.log(head);
+    //
+    //     });
+    // }
 };
 
 
-function curlFunc() {
-
-    console.log('>>> apiRoute.js > GET Function');
-
-    let gitUrl = 'https://github.com/pramurthy/cloudprovision-templates/blob/master/templates_list_production.json';
-    let options = {url: gitUrl, include: true};
-
-    console.log("apiRoute.js GET");
-
-    curl.request(options, function (err, parts) {
-        parts = parts.split('\r\n');
-        let data = parts.pop()
-            , head = parts.pop();
-
-        // console.log(head);
-        console.log(data);
-
-    });
-}
+// function curlFunc() {
+//
+//     console.log('>>> apiRoute.js > GET Function');
+//
+//     let gitUrl = 'https://github.com/pramurthy/cloudprovision-templates/blob/master/templates_list_production.json';
+//     let options = {url: gitUrl, include: true};
+//
+//     console.log("apiRoute.js GET");
+//
+//     curl.request(options, function (err, parts) {
+//         parts = parts.split('\r\n');
+//         let data = parts.pop()
+//             , head = parts.pop();
+//
+//         // console.log(head);
+//         console.log(data);
+//
+//     });
+// }
 
 
 

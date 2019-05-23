@@ -20,8 +20,8 @@ function getXHR(url){
             console.log(xhr.status);
 
             returnData = xhr.responseText;
-            console.log('>>> Return Data');
-            console.log(returnData);
+            // console.log('>>> Return Data');
+            // console.log(returnData);
 
             dataSpace.innerHTML = returnData;
 
@@ -29,7 +29,7 @@ function getXHR(url){
     }
 
     function handleError(error){
-        console.log(`Error: ${error}`);
+        console.log(`Error:`);
         console.log(error);
     }
 

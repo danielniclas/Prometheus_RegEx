@@ -9,6 +9,7 @@ module.exports = {
     route: function(req,res){
         const urlInfo = url.parse(req.url);
         const pathName = urlInfo.pathname;
+
         console.log(`Request Method: ${req.method}`);
 
         if(req.method === 'GET'){
@@ -22,9 +23,8 @@ module.exports = {
             else if (pathName === '/styles.css'){
                 console.log('>>>>>>> CSS Router/styles.css');
                 staticRoute.stylesCss(req,res);
-
             }
-            else if (pathName === '/data'){
+            else if (pathName === '/data'){           // <<< API-ROUTE
                 apiRoute.get(req,res);
             }
             else {

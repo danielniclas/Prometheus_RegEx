@@ -4,8 +4,9 @@
 const PORT = 8080;
 const http = require('http');
 const router = require('./server/router.js');
-const server = http.createServer();
+
 const browserSync = require('browser-Sync').create();
+const server = http.createServer();
 
 server.on('request', (req, res) => {
     router.route(req,res);
