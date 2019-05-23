@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const githubContent = require('github-content');
+const data = require('../regex_list_production.json');
 
 let parsedContents;
 let fileContents;
@@ -16,7 +17,7 @@ let REPO_NAME = "Prometheus_RegEx";
 let REPO_BRANCH = "master";
 
 
-let repoItem = ['linux-regex.json','redis-regex.json','postgres-regex.json'];
+let repoItem = ['linux-regex.json','redis-regex.json','postgres-regex.json','ssss.json'];
 
 
 repoItem.forEach((element, index, array) => {
@@ -28,13 +29,14 @@ repoItem.forEach((element, index, array) => {
 });
 
 
-function writeFile(content, PATH){
+function writeFile(content, PATH, regexType){
 
     fs.writeFile(PATH, content, function(err){
         if(err){
             return console.log(err);
         }
-        console.log("The file was saved");
+        console.log(`The file: ${regexType}-regex.json was saved`);
+        console.log(`At the following location: ${PATH}`);
     })
 }
 
@@ -54,13 +56,21 @@ function gcFunc(regexType){
 
         // PATH = `/Volumes/USB 128GB/MAPLELABS/RegEx_REPO_Project/${regexType}-regex-WRITE.json`;  //  << write to this file
         PATH = DIR + `${regexType}-regex-WRITE.json`;  //  << write to this file
-        console.log(PATH);
+        // console.log(PATH);
 
-        fileContents = file.contents;
-        parsedContents = JSON.parse(fileContents);
-        stringContents = JSON.stringify(parsedContents);
+        try{
+            fileContents = file.contents;
+            parsedContents = JSON.parse(fileContents);
+            stringContents = JSON.stringify(parsedContents);
+            writeFile(stringContents, PATH, regexType);
 
-        writeFile(stringContents, PATH);
+        } catch(err) {
+
+            console.log(`>>>> Invalid Repo Item Requested: ${regexType}-regex.json Not Present in Repo <<<<<`);
+            console.log('>>>> File not created <<<<<');
+            // console.log(err);
+
+        }
 
     });
 }

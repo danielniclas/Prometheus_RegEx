@@ -1,0 +1,7 @@
+{
+  "prometheus": [
+    "redis-regex.json",
+    "linux-regex.json",
+    "postgres-regex.json"
+  ]
+}
