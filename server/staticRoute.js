@@ -5,8 +5,6 @@ const indexHtml = fs.readFileSync('./client/index.html', {encoding:'utf8'});
 const appJS = fs.readFileSync('./client/app.js', {encoding:'utf8'});
 const stylesCss = fs.readFileSync('./client/styles.css', {encoding:'utf8'});
 
-// console.log(`appJS:  ${appJS}`);
-
 if(!indexHtml){throw new Error('Could not read index.html')}
 if(!appJS){throw new Error('Could not read app.js')}
 if(!stylesCss){throw new Error('Could not read style.css')}

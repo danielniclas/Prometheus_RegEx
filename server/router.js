@@ -2,7 +2,6 @@
 
 const staticRoute = require('./staticRoute.js');
 const apiRoute = require('./apiRoute.js');
-// const handle404 = require('./handle404.js');
 const url = require('url');
 
 module.exports = {
@@ -14,6 +13,7 @@ module.exports = {
 
         if(req.method === 'GET'){
             if (pathName === '/'){
+                console.log('>>>>>>> JS Router/');
                 staticRoute.indexHtml(req,res);
             }
             else if (pathName === '/app.js'){

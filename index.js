@@ -5,7 +5,6 @@ const PORT = 8080;
 const http = require('http');
 const router = require('./server/router.js');
 
-const browserSync = require('browser-Sync').create();
 const server = http.createServer();
 
 server.on('request', (req, res) => {
@@ -17,7 +16,6 @@ server.on('clientError', (err,socket) => {
 server.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`);
 });
-
 
 
 
