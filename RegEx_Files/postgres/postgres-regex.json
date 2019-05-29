@@ -15,38 +15,6 @@
         "result_transformation": {},
         "label": "server"
       }
-    ],
-    "pg_stat_user_tables_*{*}": [
-      {
-        "filter_rule": {
-          "must": {},
-          "must_not": {}
-        },
-        "record_classifier": {
-          "classifiers" : ["relname"],
-          "prefix" : false
-        },
-        "_documentType": "table_details",
-        "aggregation": [],
-        "result_transformation": {},
-        "label": "table"
-      }
-    ],
-    "pg_stat_database_*{*}": [
-      {
-        "filter_rule": {
-          "must": {},
-          "must_not": {}
-        },
-        "record_classifier": {
-          "classifiers" : ["datname"],
-          "prefix" : false
-        },
-        "_documentType": "database_details",
-        "aggregation": [],
-        "result_transformation": {},
-        "label": "database"
-      }
     ]
   }
 }

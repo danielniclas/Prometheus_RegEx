@@ -23,6 +23,8 @@ module.exports = {
         let REPO_NAME = "Prometheus_RegEx";
         let REPO_BRANCH = "master";
 
+        let counter = 1;
+
 
         repoItem.forEach((element, index, array) => {
 
@@ -35,13 +37,64 @@ module.exports = {
 
         function writeToFile(content, PATH, regexType) {
 
-            fs.writeFile(PATH, content, function (err) {
-                if (err) {
-                    return console.log(err);
-                }
-                console.log(`The file: ${regexType}-regex.json was saved`);
-                console.log(`At the following location: ${PATH}`);
-            })
+            // fs.writeFile(PATH, content, function (err) {
+            //     if (err) {
+            //         return console.log(err);
+            //     }
+            //     console.log(`The file: ${regexType}-regex.json was saved`);
+            //     console.log(`At the following location: ${PATH}`);
+            // })
+
+
+            // console.log(`>>> COUNTER BEFORE: ${counter}`);
+
+            if (counter === 1) {
+
+                console.log(`>>> COUNTER BEFORE: ${counter}`);
+
+                fs.writeFile(PATH, content, function (err) {
+                    if (err) {
+                        return console.log(err);
+                    }
+                    console.log(`The file: ${regexType}-regex.json was saved`);
+                    console.log(`At the following location: ${PATH}`);
+
+                    // console.log(`>>> WRITE - Counter: ${counter}`);
+                });
+
+                counter++;
+
+            } else if (counter > 1) {
+
+                console.log(`>>> STREAM - Counter: ${counter}`);
+
+                // let stream = fs.createWriteStream(PATH, {flags: 'a'});
+                // stream.write(content);
+
+                counter++;
+
+                // stream.end(',');
+
+
+                content = `,${content}`;
+
+                // append data to file
+                // fs.appendFile('sample.txt',data, 'utf8',
+                fs.appendFile(PATH,content, 'utf8',
+                    // callback function
+                    function(err) {
+                        if (err) throw err;
+                        // if no error
+                        console.log("Data is appended to file successfully.");
+                        console.log(`APPEND at the following location: ${PATH}`);
+                });
+
+
+
+
+            }
+
+              // counter++;
         }
 
 
@@ -58,13 +111,17 @@ module.exports = {
             gc.file(`${regexType}-regex.json`, function (err, file) {
                 if (err) return console.log(err);
 
-                PATH = DIR + `${regexType}-regex-WRITE.json`;  //  << write to this file
+                // PATH = DIR + `${regexType}-regex-WRITE.json`;  //  << write to this file
+                PATH = DIR + `prometheus-regex-WRITE.json`;  //  << write to this file
 
                 try {
 
                     fileContents = file.contents;
                     parsedContents = JSON.parse(fileContents);
                     stringContents = JSON.stringify(parsedContents);
+
+                    // console.log(`>>> COUNTER - TRY: ${counter}`);
+
                     writeToFile(stringContents, PATH, regexType);   //  call write function
 
                 } catch (err) {
