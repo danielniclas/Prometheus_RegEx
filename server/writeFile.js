@@ -17,8 +17,8 @@ module.exports = {
         let repoItem = data.prometheus;
 
         let PATH;
-        // let DIR = `/Volumes/USB 128GB/MAPLELABS/RegEx_REPO_Project/`;
         let DIR = `/Users/danielniclas/MAPLELABS/REGEX_FILES/`;
+        // let DIR = `/Users/danielniclas/MAPLELABS/REGEX_FILES/`;
         let GIT_OWNER = "danielniclas";
         let REPO_NAME = "Prometheus_RegEx";
         let REPO_BRANCH = "master";
@@ -65,7 +65,7 @@ module.exports = {
                     fileContents = file.contents;
                     parsedContents = JSON.parse(fileContents);
                     stringContents = JSON.stringify(parsedContents);
-                    writeToFile(stringContents, PATH, regexType);
+                    writeToFile(stringContents, PATH, regexType);   //  call write function
 
                 } catch (err) {
 
