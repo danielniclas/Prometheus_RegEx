@@ -1,10 +1,5 @@
 'use strict';
 
-
-module.exports = {
-
-    getWriteFile:function() {
-
         const fs = require('fs');
         const githubContent = require('github-content');
         const data = require('../regex_list_production.json');
@@ -23,6 +18,9 @@ module.exports = {
         let REPO_NAME = "Prometheus_RegEx";
         let REPO_BRANCH = "master";
 
+module.exports = {
+
+    getWriteFile:function() {
 
         repoItem.forEach((element, index, array) => {
 
