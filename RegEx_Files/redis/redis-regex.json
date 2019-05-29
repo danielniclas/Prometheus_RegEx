@@ -1,0 +1,341 @@
+{
+  "prometheus-redis": {
+    "redis_uptime_in_seconds": [
+      {
+        "filter_rule": {
+          "must": {},
+          "must_not": {}
+        },
+        "record_classifier": {
+          "classifiers": [],
+          "prefix": false
+        },
+        "_documentType": "redisDetails",
+        "aggregation": [],
+        "result_transformation": {},
+        "label": "upTime-r"
+      }
+    ],
+    "redis_instantaneous_ops_per_sec": [
+      {
+        "filter_rule": {
+          "must": {},
+          "must_not": {}
+        },
+        "record_classifier": {
+          "classifiers": [],
+          "prefix": false
+        },
+        "_documentType": "redisStat",
+        "aggregation": [],
+        "result_transformation": {},
+        "label": "instantaneousOpsPerSec-r"
+      }
+    ],
+    "redis_commands_duration_seconds_total{*}": [
+      {
+        "filter_rule": {
+          "must": {"cmd": ["latency"]},
+          "must_not": {}
+        },
+        "record_classifier": {
+          "classifiers": [],
+          "prefix": false
+        },
+        "_documentType": "redisStat",
+        "aggregation": [],
+        "result_transformation": {},
+        "label": "commandsLatency-r"
+      }
+    ],
+    "redis_instance_info{*}": [
+      {
+        "filter_rule": {
+          "must": {},
+          "must_not": {}
+        },
+        "record_classifier": {
+          "classifiers": ["addr", "os", "redis_build_id", "redis_mode", "redis_version", "role"],
+          "prefix": false
+        },
+        "_documentType": "redisDetails",
+        "aggregation": [],
+        "result_transformation": {},
+        "label": "instanceInfo-r"
+      }
+    ],
+    "redis_keyspace_hits_total": [
+      {
+        "filter_rule": {
+          "must": {},
+          "must_not": {}
+        },
+        "record_classifier": {
+          "classifiers": [],
+          "prefix": false
+        },
+        "_documentType": "redisStat",
+        "aggregation": [],
+        "result_transformation": {},
+        "label": "keyspaceHits-r"
+      }
+    ],
+    "redis_keyspace_misses_total": [
+      {
+        "filter_rule": {
+          "must": {},
+          "must_not": {}
+        },
+        "record_classifier": {
+          "classifiers": [],
+          "prefix": false
+        },
+        "_documentType": "redisStat",
+        "aggregation": [],
+        "result_transformation": {},
+        "label": "keyspaceMisses-r"
+      }
+    ],
+    "redis_connected_clients": [
+      {
+        "filter_rule": {
+          "must": {},
+          "must_not": {}
+        },
+        "record_classifier": {
+          "classifiers": [],
+          "prefix": false
+        },
+        "_documentType": "redisStat",
+        "aggregation": [],
+        "result_transformation": {},
+        "label": "connectedClients-r"
+      }
+    ],
+    "redis_connected_slaves": [
+      {
+        "filter_rule": {
+          "must": {},
+          "must_not": {}
+        },
+        "record_classifier": {
+          "classifiers": [],
+          "prefix": false
+        },
+        "_documentType": "redisStat",
+        "aggregation": [],
+        "result_transformation": {},
+        "label": "connectedSlaves-r"
+      }
+    ],
+    "redis_memory_fragmentation_ratio": [
+      {
+        "filter_rule": {
+          "must": {},
+          "must_not": {}
+        },
+        "record_classifier": {
+          "classifiers": [],
+          "prefix": false
+        },
+        "_documentType": "redisStat",
+        "aggregation": [],
+        "result_transformation": {},
+        "label": "memFragmentationRatio-r"
+      }
+    ],
+    "redis_rdb_changes_since_last_save": [
+      {
+        "filter_rule": {
+          "must": {},
+          "must_not": {}
+        },
+        "record_classifier": {
+          "classifiers": [],
+          "prefix": false
+        },
+        "_documentType": "redisStat",
+        "aggregation": [],
+        "result_transformation": {},
+        "label": "lastSaveChanges-r"
+      }
+    ],
+    "redis_blocked_clients": [
+      {
+        "filter_rule": {
+          "must": {},
+          "must_not": {}
+        },
+        "record_classifier": {
+          "classifiers": [],
+          "prefix": false
+        },
+        "_documentType": "redisStat",
+        "aggregation": [],
+        "result_transformation": {},
+        "label": "blockedClients-r"
+      }
+    ],
+    "redis_rejected_connections_total": [
+      {
+        "filter_rule": {
+          "must": {},
+          "must_not": {}
+        },
+        "record_classifier": {
+          "classifiers": [],
+          "prefix": false
+        },
+        "_documentType": "redisStat",
+        "aggregation": [],
+        "result_transformation": {},
+        "label": "rejectedConn-r"
+      }
+    ],
+    "redis_evicted_keys_total": [
+      {
+        "filter_rule": {
+          "must": {},
+          "must_not": {}
+        },
+        "record_classifier": {
+          "classifiers": [],
+          "prefix": false
+        },
+        "_documentType": "redisStat",
+        "aggregation": [],
+        "result_transformation": {},
+        "label": "evictedKeys-r"
+      }
+    ],
+    "redis_rdb_last_save_timestamp_seconds": [
+      {
+        "filter_rule": {
+          "must": {},
+          "must_not": {}
+        },
+        "record_classifier": {
+          "classifiers": [],
+          "prefix": false
+        },
+        "_documentType": "redisStat",
+        "aggregation": [],
+        "result_transformation": {},
+        "label": "lastSaveTime-r"
+      }
+    ],
+    "redis_memory_used_bytes": [
+      {
+        "filter_rule": {
+          "must": {},
+          "must_not": {}
+        },
+        "record_classifier": {
+          "classifiers": [],
+          "prefix": false
+        },
+        "_documentType": "redisStat",
+        "aggregation": [],
+        "result_transformation": {},
+        "label": "memoryUsed-r"
+      }
+    ],
+    "redis_memory_used_peak_bytes": [
+      {
+        "filter_rule": {
+          "must": {},
+          "must_not": {}
+        },
+        "record_classifier": {
+          "classifiers": [],
+          "prefix": false
+        },
+        "_documentType": "redisStat",
+        "aggregation": [],
+        "result_transformation": {},
+        "label": "memoryUsedPeak-r"
+      }
+    ],
+    "redis_db_keys{*}": [
+      {
+        "filter_rule": {
+          "must": {},
+          "must_not": {}
+        },
+        "record_classifier": {
+          "classifiers": ["db"],
+          "prefix": false
+        },
+        "_documentType": "redisStat",
+        "aggregation": ["SUM"],
+        "result_transformation": {},
+        "label": "totKeys-r"
+      }
+    ],
+    "redis_net_input_bytes_total": [
+      {
+        "filter_rule": {
+          "must": {},
+          "must_not": {}
+        },
+        "record_classifier": {
+          "classifiers": [],
+          "prefix": false
+        },
+        "_documentType": "redisStat",
+        "aggregation": [],
+        "result_transformation": {},
+        "label": "totalNetInputBytes-r"
+      }
+    ],
+    "redis_expired_keys_total": [
+      {
+        "filter_rule": {
+          "must": {},
+          "must_not": {}
+        },
+        "record_classifier": {
+          "classifiers": [],
+          "prefix": false
+        },
+        "_documentType": "redisStat",
+        "aggregation": [],
+        "result_transformation": {},
+        "label": "expiredKeys-r"
+      }
+    ],
+    "redis_net_output_bytes_total": [
+      {
+        "filter_rule": {
+          "must": {},
+          "must_not": {}
+        },
+        "record_classifier": {
+          "classifiers": [],
+          "prefix": false
+        },
+        "_documentType": "redisStat",
+        "aggregation": [],
+        "result_transformation": {},
+        "label": "totalNetOutputBytes-r"
+      }
+    ],
+    "redis_connections_received_total": [
+      {
+        "filter_rule": {
+          "must": {},
+          "must_not": {}
+        },
+        "record_classifier": {
+          "classifiers": [],
+          "prefix": false
+        },
+        "_documentType": "redisStat",
+        "aggregation": [],
+        "result_transformation": {},
+        "label": "totalConnReceived-r"
+      }
+    ]
+  }
+
+}
