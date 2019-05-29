@@ -1,11 +1,8 @@
 'use strict';
 
 
-module.exports = {
-
-    getWriteFile:function() {
-
         const fs = require('fs');
+        const _ =  require('underscore');
         const githubContent = require('github-content');
         const data = require('../regex_list_production.json');
 
@@ -24,7 +21,12 @@ module.exports = {
         // let REPO_BRANCH = "master";
         let REPO_BRANCH = "regex_5-29-19";
 
-        let counter = 1;
+        let target = {};
+
+
+module.exports = {
+
+    getWriteFile:function() {
 
 
         repoItem.forEach((element, index, array) => {
@@ -38,66 +40,73 @@ module.exports = {
 
         function writeToFile(content, PATH, regexType) {
 
-            // fs.writeFile(PATH, content, function (err) {
-            //     if (err) {
-            //         return console.log(err);
-            //     }
-            //     console.log(`The file: ${regexType}-regex.json was saved`);
-            //     console.log(`At the following location: ${PATH}`);
-            // })
+            fs.writeFile(PATH, content, function (err) {
+                if (err) {
+                    return console.log(err);
+                }
+                console.log(`The file: ${regexType}-regex.json was saved`);
+                console.log(`At the following location: ${PATH}`);
+            });
 
 
             // console.log(`>>> COUNTER BEFORE: ${counter}`);
 
-            if (counter === 1) {
+            // if (counter === 1) {
+            //
+            //     console.log(`>>> COUNTER BEFORE: ${counter}`);
+            //
+            //     fs.writeFile(PATH, content, function (err) {
+            //         if (err) {
+            //             return console.log(err);
+            //         }
+            //         console.log(`The file: ${regexType}-regex.json was saved`);
+            //         console.log(`At the following location: ${PATH}`);
+            //
+            //         // console.log(`>>> WRITE - Counter: ${counter}`);
+            //     });
+            //
+            //     counter++;
+            //
+            // } else if (counter > 1) {
+            //
+            //     console.log(`>>> STREAM - Counter: ${counter}`);
+            //
+            //     let stream = fs.createWriteStream(PATH, {flags: 'a'});
+            //     stream.write(content);
+            //
+            //     counter++;
+            //
+            //     stream.end(',');
+            //
+            //
+            //     content = `,${content}`;
+            //
+            //     fs.appendFile(PATH,content, 'utf8',
+            //         // callback function
+            //         function(err) {
+            //             if (err) throw err;
+            //             // if no error
+            //             console.log("Data is appended to file successfully.");
+            //             console.log(`APPEND at the following location: ${PATH}`);
+            //     });
+            //
+            //
+            // }
 
-                console.log(`>>> COUNTER BEFORE: ${counter}`);
-
-                fs.writeFile(PATH, content, function (err) {
-                    if (err) {
-                        return console.log(err);
-                    }
-                    console.log(`The file: ${regexType}-regex.json was saved`);
-                    console.log(`At the following location: ${PATH}`);
-
-                    // console.log(`>>> WRITE - Counter: ${counter}`);
-                });
-
-                counter++;
-
-            } else if (counter > 1) {
-
-                console.log(`>>> STREAM - Counter: ${counter}`);
-
-                // let stream = fs.createWriteStream(PATH, {flags: 'a'});
-                // stream.write(content);
-
-                counter++;
-
-                // stream.end(',');
-
-
-                content = `,${content}`;
-
-                // append data to file
-                // fs.appendFile('sample.txt',data, 'utf8',
-                fs.appendFile(PATH,content, 'utf8',
-                    // callback function
-                    function(err) {
-                        if (err) throw err;
-                        // if no error
-                        console.log("Data is appended to file successfully.");
-                        console.log(`APPEND at the following location: ${PATH}`);
-                });
-
-
-
-
-            }
-
-              // counter++;
         }
 
+
+        // function objectConcat(object){
+        //
+        //  console.log("OBJECT:  ");
+        //  console.log(object);
+        //
+        //   console.log("TARGET: ");
+        //   console.log(_.extend(target, object));
+        //
+        //   return  _.extend(target, object)
+        //
+        // }
 
         function gcFunc(regexType) {
 
@@ -112,8 +121,8 @@ module.exports = {
             gc.file(`${regexType}-regex.json`, function (err, file) {
                 if (err) return console.log(err);
 
-                // PATH = DIR + `${regexType}-regex-WRITE.json`;  //  << write to this file
-                PATH = DIR + `prometheus-regex-WRITE.json`;  //  << write to this file
+                PATH = DIR + `${regexType}-regex-WRITE.json`;  //  << write to this file
+                // PATH = DIR + `prometheus-regex-WRITE.json`;  //  << write to this file
 
                 try {
 
@@ -124,6 +133,7 @@ module.exports = {
                     // console.log(`>>> COUNTER - TRY: ${counter}`);
 
                     writeToFile(stringContents, PATH, regexType);   //  call write function
+                    // objectConcat(stringContents);   //  call object concatenator
 
                 } catch (err) {
 
