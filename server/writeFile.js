@@ -55,7 +55,8 @@ module.exports = {
 
             let gc = new githubContent(options);
 
-            gc.file(`${regexType}-regex.json`, function (err, file) {
+            // gc.file(`${regexType}-regex.json`, function (err, file) {
+            gc.file(`/RegEx_Files/${regexType}/${regexType}-regex.json`, function (err, file) {
                 if (err) return console.log(err);
 
                 PATH = DIR + `${regexType}-regex-WRITE.json`;  //  << write to this file
