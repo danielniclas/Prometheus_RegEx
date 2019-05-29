@@ -21,7 +21,8 @@ module.exports = {
         // let DIR = `/Users/danielniclas/MAPLELABS/REGEX_FILES/`;
         let GIT_OWNER = "danielniclas";
         let REPO_NAME = "Prometheus_RegEx";
-        let REPO_BRANCH = "master";
+        // let REPO_BRANCH = "master";
+        let REPO_BRANCH = "regex_5-29-19";
 
         let counter = 1;
 
