@@ -70,7 +70,7 @@ module.exports = {
                     fileContents = file.contents;
                     parsedContents = JSON.parse(fileContents);
                     stringContents = JSON.stringify(parsedContents);
-                    fs.mkdirSync(`${DIR_PATH}${regexType}-RegEx`);
+                    fs.mkdirSync(`${DIR_PATH}${regexType}-RegEx`);          //  Create Directory
                     writeToFile(stringContents, FILE_PATH, regexType);
 
                 } catch (err) {
